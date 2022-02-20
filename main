@@ -1,0 +1,18 @@
+import time  #import time module
+from datetime import datetime #import datetime module
+current_time = time.localtime() #show current time
+print(f"Current time is: {current_time.tm_hour} Hours :{current_time.tm_min} Mins :{current_time.tm_sec} Secs ") #Show current time in speciic format
+
+time_hour = int(input("Please enter Hours: ")) #user input
+time_min = int(input("Please enter Mins: "))
+time_sec =int(input("Please enter Sec: "))
+
+left_time = datetime.strptime(f"{time_hour}:{time_min}:{time_sec}", "%H:%M:%S") - datetime.strptime(f"{current_time.tm_hour}:{current_time.tm_min}:{current_time.tm_sec}","%H:%M:%S",)
+
+left_time_int = int(left_time.seconds)
+
+time.sleep(left_time_int) 
+
+print("Hay, WakeUp") #We can use alarm tone here as well
+
+
